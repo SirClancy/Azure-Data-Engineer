@@ -1,0 +1,9 @@
+{
+	"name": "loadincremental-datafactory",
+	"location": "southafricanorth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e8b0e508-66b5-4d62-86cb-f30162f892a1",
+		"tenantId": "b5f97d77-c517-453f-a576-ef17298b0c82"
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"name": "AzureSqlTableSRGConfigTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSRGDatabaseLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string",
+				"defaultValue": "adf"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Table_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Source",
+				"type": "varchar"
+			},
+			{
+				"name": "Max_LastUpdateDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Enabled",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Incremental_Full_Load",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
