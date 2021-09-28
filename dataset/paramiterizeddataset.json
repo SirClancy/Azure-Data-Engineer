@@ -1,0 +1,24 @@
+{
+	"name": "paramiterizeddataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Paramiterizedlinkedservice",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"linkedserviceServerParam": {
+					"value": "@dataset().parameteraddedatdatasetlevel",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"parameteraddedatdatasetlevel": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

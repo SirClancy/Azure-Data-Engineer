@@ -1,0 +1,17 @@
+{
+	"name": "custdatalinkedservice",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Downloads\\Azure\\lookup",
+			"userId": "Sir",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3NGMyNGViZS01ZDRiLTQxODktOTA4MC0yOGI3MWRmOWE4ZWEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "techitSelfhostedintergrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

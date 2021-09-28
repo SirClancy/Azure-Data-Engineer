@@ -1,0 +1,9 @@
+{
+	"name": "techitdatafactory",
+	"location": "southafricanorth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4f0654fa-1837-47df-b19c-87f2c004911d",
+		"tenantId": "b5f97d77-c517-453f-a576-ef17298b0c82"
+	}
+}

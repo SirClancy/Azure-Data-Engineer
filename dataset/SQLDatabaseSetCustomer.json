@@ -1,0 +1,59 @@
+{
+	"name": "SQLDatabaseSetCustomer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldatabaselinkedservicecustomer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "InvoiceNo",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StockCode",
+				"type": "varchar"
+			},
+			{
+				"name": "Description",
+				"type": "varchar"
+			},
+			{
+				"name": "Quantity",
+				"type": "varchar"
+			},
+			{
+				"name": "InvoiceDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UnitPrice",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CustomerID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Country",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "customer_sales"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

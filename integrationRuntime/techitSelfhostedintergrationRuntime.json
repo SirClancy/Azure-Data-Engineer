@@ -1,0 +1,6 @@
+{
+	"name": "techitSelfhostedintergrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

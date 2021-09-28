@@ -1,0 +1,33 @@
+{
+	"name": "custdatasetblob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobcustdatalinkedservicenamecid",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "customer-data.csv",
+				"container": "custdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

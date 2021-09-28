@@ -1,0 +1,35 @@
+{
+	"name": "azureSQLDBdestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedServiceTechitDestination",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "username",
+				"type": "varchar"
+			},
+			{
+				"name": "gender",
+				"type": "varchar"
+			},
+			{
+				"name": "user_address",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "users"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

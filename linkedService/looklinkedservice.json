@@ -1,0 +1,17 @@
+{
+	"name": "looklinkedservice",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs",
+			"userId": "Sir",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2MjRhMWYwNS0zOGE3LTRlOGEtYTg5OC0yODVjNDgzOWZkZmIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "techitSelfhostedintergrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

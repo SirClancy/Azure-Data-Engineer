@@ -1,0 +1,62 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "datastorageSalesdata",
+						"type": "DatasetReference"
+					},
+					"name": "dataStorage"
+				},
+				{
+					"dataset": {
+						"referenceName": "custdatasetblob",
+						"type": "DatasetReference"
+					},
+					"name": "ReferenceDataSource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SQLDatabaseSetCustomer",
+						"type": "DatasetReference"
+					},
+					"name": "SQLDestinationDBSInk"
+				},
+				{
+					"dataset": {
+						"referenceName": "customerdatasink2stream2dataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink2stream2"
+				},
+				{
+					"dataset": {
+						"referenceName": "sink3stream3defaultcustomersalesdataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink3stream3"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ConditionalSplit1"
+				},
+				{
+					"name": "Lookup"
+				},
+				{
+					"name": "DerivedColumn1"
+				},
+				{
+					"name": "Filter1"
+				}
+			],
+			"script": "source(output(\n\t\tInvoiceNo as integer,\n\t\tStockCode as string,\n\t\tDescription as string,\n\t\tQuantity as integer,\n\t\tInvoiceDate as date 'dd-MM-yyyy',\n\t\tUnitPrice as float,\n\t\tCustomerID as integer,\n\t\tCountry as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> dataStorage\nsource(output(\n\t\tCID as integer,\n\t\tName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ReferenceDataSource\nDerivedColumn1 split(UnitPrice>1 && UnitPrice<4,\n\tUnitPrice>3 && UnitPrice<4,\n\tdisjoint: true) ~> ConditionalSplit1@(stream1, stream2, DefaultStream)\ndataStorage, ReferenceDataSource lookup(CustomerID == CID,\n\tmultiple: false,\n\tpickup: 'any',\n\tbroadcast: 'auto')~> Lookup\nFilter1 derive(customer_name = Name) ~> DerivedColumn1\nLookup filter(Quantity>4) ~> Filter1\nConditionalSplit1@stream1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tInvoiceNo as integer,\n\t\tStockCode as string,\n\t\tDescription as string,\n\t\tQuantity as string,\n\t\tInvoiceDate as timestamp,\n\t\tUnitPrice as double,\n\t\tCustomerID as integer,\n\t\tCountry as string,\n\t\tcustomer_name as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> SQLDestinationDBSInk\nConditionalSplit1@stream2 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tInvoiceNo as integer,\n\t\tStockCode as string,\n\t\tQuantity as integer,\n\t\tInvoiceDate as timestamp,\n\t\tUnitPrice as double,\n\t\tCustomerID as integer,\n\t\tCountry as string,\n\t\tCustomerName as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink2stream2\nConditionalSplit1@DefaultStream sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tInvoiceNo as integer,\n\t\tStockCode as string,\n\t\tQuantity as integer,\n\t\tInvoiceDate as timestamp,\n\t\tUnitPrice as double,\n\t\tCustomerID as integer,\n\t\tCountry as string,\n\t\tCustomerName as string\n\t),\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink3stream3"
+		}
+	}
+}

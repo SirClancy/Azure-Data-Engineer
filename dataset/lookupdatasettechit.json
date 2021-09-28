@@ -1,0 +1,28 @@
+{
+	"name": "lookupdatasettechit",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "looklinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "readme_en.txt"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "                        KMSAuto Net 2015 Portable от Ratiborus",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

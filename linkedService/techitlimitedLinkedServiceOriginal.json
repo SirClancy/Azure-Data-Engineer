@@ -1,0 +1,17 @@
+{
+	"name": "techitlimitedLinkedServiceOriginal",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\csvs",
+			"userId": "Sir",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkODgxODM3My1mNmNiLTQwN2QtYmUyMy00MjA0MDg2NjhiMGQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "techitSelfhostedintergrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

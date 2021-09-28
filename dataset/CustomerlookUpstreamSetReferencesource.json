@@ -1,0 +1,26 @@
+{
+	"name": "CustomerlookUpstreamSetReferencesource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedservicecustomercidname",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CID",
+				"type": "varchar"
+			},
+			{
+				"name": "Name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "customer_data"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
