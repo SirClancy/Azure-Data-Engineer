@@ -1,0 +1,105 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "techitdatafactory"
+		},
+		"AzureBlobStorage1techit2_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorageSalesdata_connectionString": {
+			"value": ""
+		},
+		"AzureSRGDatabaseLinkedService_connectionString": {
+			"value": ""
+		},
+		"AzureSqlSRClinkedService_connectionString": {
+			"value": ""
+		},
+		"Paramiterizedlinkedservice_connectionString": {
+			"value": ""
+		},
+		"blobcustdatalinkedservicenamecid_connectionString": {
+			"value": ""
+		},
+		"custdatalinkedservice_password": {
+			"value": ""
+		},
+		"getmetadataactivitylinkedservice_password": {
+			"value": ""
+		},
+		"linkedService1_connectionString": {
+			"value": ""
+		},
+		"linkedServiceAzureSQlTechit_connectionString": {
+			"value": ""
+		},
+		"linkedServiceTechitDestination_connectionString": {
+			"value": ""
+		},
+		"linkedservicecustomercidname_connectionString": {
+			"value": ""
+		},
+		"looklinkedservice_password": {
+			"value": ""
+		},
+		"sqldatabaselinkedservicecustomer_connectionString": {
+			"value": ""
+		},
+		"techit2linkedservice_password": {
+			"value": ""
+		},
+		"techitlimitedLinkedServiceOriginal_password": {
+			"value": ""
+		},
+		"techitlinkedServicetest_connectionString": {
+			"value": ""
+		},
+		"customer_dataLinkedService_password": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
+		"linkedService2_connectionString": {
+			"value": ""
+		},
+		"custdatalinkedservice_properties_typeProperties_host": {
+			"value": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Downloads\\Azure\\lookup"
+		},
+		"custdatalinkedservice_properties_typeProperties_userId": {
+			"value": "Sir"
+		},
+		"getmetadataactivitylinkedservice_properties_typeProperties_host": {
+			"value": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs"
+		},
+		"getmetadataactivitylinkedservice_properties_typeProperties_userId": {
+			"value": "Sir"
+		},
+		"looklinkedservice_properties_typeProperties_host": {
+			"value": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs"
+		},
+		"looklinkedservice_properties_typeProperties_userId": {
+			"value": "Sir"
+		},
+		"techit2linkedservice_properties_typeProperties_host": {
+			"value": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs"
+		},
+		"techit2linkedservice_properties_typeProperties_userId": {
+			"value": "Sir"
+		},
+		"techitlimitedLinkedServiceOriginal_properties_typeProperties_host": {
+			"value": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\csvs"
+		},
+		"techitlimitedLinkedServiceOriginal_properties_typeProperties_userId": {
+			"value": "Sir"
+		},
+		"customer_dataLinkedService_properties_typeProperties_host": {
+			"value": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\synapse"
+		},
+		"customer_dataLinkedService_properties_typeProperties_userId": {
+			"value": "Sir"
+		}
+	}
+}

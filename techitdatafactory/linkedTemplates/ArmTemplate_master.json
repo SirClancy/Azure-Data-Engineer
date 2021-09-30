@@ -1,0 +1,306 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "techitdatafactory"
+		},
+		"AzureBlobStorage1techit2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1techit2'"
+		},
+		"AzureBlobStorageSalesdata_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageSalesdata'"
+		},
+		"AzureSRGDatabaseLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSRGDatabaseLinkedService'"
+		},
+		"AzureSqlSRClinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlSRClinkedService'"
+		},
+		"Paramiterizedlinkedservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Paramiterizedlinkedservice'"
+		},
+		"blobcustdatalinkedservicenamecid_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobcustdatalinkedservicenamecid'"
+		},
+		"custdatalinkedservice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'custdatalinkedservice'"
+		},
+		"getmetadataactivitylinkedservice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'getmetadataactivitylinkedservice'"
+		},
+		"linkedService1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedService1'"
+		},
+		"linkedServiceAzureSQlTechit_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedServiceAzureSQlTechit'"
+		},
+		"linkedServiceTechitDestination_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedServiceTechitDestination'"
+		},
+		"linkedservicecustomercidname_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedservicecustomercidname'"
+		},
+		"looklinkedservice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'looklinkedservice'"
+		},
+		"sqldatabaselinkedservicecustomer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqldatabaselinkedservicecustomer'"
+		},
+		"techit2linkedservice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'techit2linkedservice'"
+		},
+		"techitlimitedLinkedServiceOriginal_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'techitlimitedLinkedServiceOriginal'"
+		},
+		"techitlinkedServicetest_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'techitlinkedServicetest'"
+		},
+		"customer_dataLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'customer_dataLinkedService'"
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalytics1'"
+		},
+		"linkedService2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedService2'"
+		},
+		"custdatalinkedservice_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Downloads\\Azure\\lookup"
+		},
+		"custdatalinkedservice_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Sir"
+		},
+		"getmetadataactivitylinkedservice_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs"
+		},
+		"getmetadataactivitylinkedservice_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Sir"
+		},
+		"looklinkedservice_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs"
+		},
+		"looklinkedservice_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Sir"
+		},
+		"techit2linkedservice_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\logs"
+		},
+		"techit2linkedservice_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Sir"
+		},
+		"techitlimitedLinkedServiceOriginal_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\csvs"
+		},
+		"techitlimitedLinkedServiceOriginal_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Sir"
+		},
+		"customer_dataLinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\DESKTOP-AUS6IJD\\Users\\Sir\\Documents\\synapse"
+		},
+		"customer_dataLinkedService_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Sir"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "techitdatafactory_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1techit2_connectionString": {
+						"value": "[parameters('AzureBlobStorage1techit2_connectionString')]"
+					},
+					"AzureBlobStorageSalesdata_connectionString": {
+						"value": "[parameters('AzureBlobStorageSalesdata_connectionString')]"
+					},
+					"AzureSRGDatabaseLinkedService_connectionString": {
+						"value": "[parameters('AzureSRGDatabaseLinkedService_connectionString')]"
+					},
+					"AzureSqlSRClinkedService_connectionString": {
+						"value": "[parameters('AzureSqlSRClinkedService_connectionString')]"
+					},
+					"Paramiterizedlinkedservice_connectionString": {
+						"value": "[parameters('Paramiterizedlinkedservice_connectionString')]"
+					},
+					"blobcustdatalinkedservicenamecid_connectionString": {
+						"value": "[parameters('blobcustdatalinkedservicenamecid_connectionString')]"
+					},
+					"linkedService1_connectionString": {
+						"value": "[parameters('linkedService1_connectionString')]"
+					},
+					"linkedServiceAzureSQlTechit_connectionString": {
+						"value": "[parameters('linkedServiceAzureSQlTechit_connectionString')]"
+					},
+					"linkedServiceTechitDestination_connectionString": {
+						"value": "[parameters('linkedServiceTechitDestination_connectionString')]"
+					},
+					"linkedservicecustomercidname_connectionString": {
+						"value": "[parameters('linkedservicecustomercidname_connectionString')]"
+					},
+					"sqldatabaselinkedservicecustomer_connectionString": {
+						"value": "[parameters('sqldatabaselinkedservicecustomer_connectionString')]"
+					},
+					"techitlinkedServicetest_connectionString": {
+						"value": "[parameters('techitlinkedServicetest_connectionString')]"
+					},
+					"AzureSynapseAnalytics1_connectionString": {
+						"value": "[parameters('AzureSynapseAnalytics1_connectionString')]"
+					},
+					"linkedService2_connectionString": {
+						"value": "[parameters('linkedService2_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "techitdatafactory_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"custdatalinkedservice_password": {
+						"value": "[parameters('custdatalinkedservice_password')]"
+					},
+					"getmetadataactivitylinkedservice_password": {
+						"value": "[parameters('getmetadataactivitylinkedservice_password')]"
+					},
+					"looklinkedservice_password": {
+						"value": "[parameters('looklinkedservice_password')]"
+					},
+					"techit2linkedservice_password": {
+						"value": "[parameters('techit2linkedservice_password')]"
+					},
+					"techitlimitedLinkedServiceOriginal_password": {
+						"value": "[parameters('techitlimitedLinkedServiceOriginal_password')]"
+					},
+					"customer_dataLinkedService_password": {
+						"value": "[parameters('customer_dataLinkedService_password')]"
+					},
+					"custdatalinkedservice_properties_typeProperties_host": {
+						"value": "[parameters('custdatalinkedservice_properties_typeProperties_host')]"
+					},
+					"custdatalinkedservice_properties_typeProperties_userId": {
+						"value": "[parameters('custdatalinkedservice_properties_typeProperties_userId')]"
+					},
+					"getmetadataactivitylinkedservice_properties_typeProperties_host": {
+						"value": "[parameters('getmetadataactivitylinkedservice_properties_typeProperties_host')]"
+					},
+					"getmetadataactivitylinkedservice_properties_typeProperties_userId": {
+						"value": "[parameters('getmetadataactivitylinkedservice_properties_typeProperties_userId')]"
+					},
+					"looklinkedservice_properties_typeProperties_host": {
+						"value": "[parameters('looklinkedservice_properties_typeProperties_host')]"
+					},
+					"looklinkedservice_properties_typeProperties_userId": {
+						"value": "[parameters('looklinkedservice_properties_typeProperties_userId')]"
+					},
+					"techit2linkedservice_properties_typeProperties_host": {
+						"value": "[parameters('techit2linkedservice_properties_typeProperties_host')]"
+					},
+					"techit2linkedservice_properties_typeProperties_userId": {
+						"value": "[parameters('techit2linkedservice_properties_typeProperties_userId')]"
+					},
+					"techitlimitedLinkedServiceOriginal_properties_typeProperties_host": {
+						"value": "[parameters('techitlimitedLinkedServiceOriginal_properties_typeProperties_host')]"
+					},
+					"techitlimitedLinkedServiceOriginal_properties_typeProperties_userId": {
+						"value": "[parameters('techitlimitedLinkedServiceOriginal_properties_typeProperties_userId')]"
+					},
+					"customer_dataLinkedService_properties_typeProperties_host": {
+						"value": "[parameters('customer_dataLinkedService_properties_typeProperties_host')]"
+					},
+					"customer_dataLinkedService_properties_typeProperties_userId": {
+						"value": "[parameters('customer_dataLinkedService_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'techitdatafactory_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "techitdatafactory_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'techitdatafactory_ArmTemplate_1')]"
+			]
+		}
+	]
+}
